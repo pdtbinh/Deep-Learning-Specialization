@@ -1,7 +1,7 @@
 # Deep Learning Specialization by DeepLearning.AI on Coursera
 
-Certification verified by Coursera for Course 1 - Neural Networks and Deep Learning:
+Certification verified by Coursera for Course 1 - Neural Networks and Deep Learning
 https://www.coursera.org/account/accomplishments/certificate/KLFYNUL4W8YM
 
-Certification verified by Coursera for Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization:
+Certification verified by Coursera for Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization
 https://www.coursera.org/account/accomplishments/certificate/Z64VMNVF24BP
