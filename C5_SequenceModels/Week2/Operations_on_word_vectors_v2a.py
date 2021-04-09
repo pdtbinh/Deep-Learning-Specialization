@@ -31,7 +31,7 @@
 
 # Let's get started! Run the following cell to load the packages you will need.
 
-# In[32]:
+# In[1]:
 
 import numpy as np
 from w2v_utils import *
@@ -41,7 +41,7 @@ from w2v_utils import *
 # * For this assignment, we will use 50-dimensional GloVe vectors to represent words. 
 # * Run the following cell to load the `word_to_vec_map`. 
 
-# In[33]:
+# In[2]:
 
 words, word_to_vec_map = read_glove_vecs('../../readonly/glove.6B.50d.txt')
 
@@ -54,11 +54,6 @@ words, word_to_vec_map = read_glove_vecs('../../readonly/glove.6B.50d.txt')
 # * Recall from the lesson videos that one-hot vectors do not do a good job of capturing the level of similarity between words (every one-hot vector has the same Euclidean distance from any other one-hot vector).
 # * Embedding vectors such as GloVe vectors provide much more useful information about the meaning of individual words. 
 # * Lets now see how you can use GloVe vectors to measure the similarity between two words. 
-
-# In[34]:
-
-word_to_vec_map
-
 
 # # 1 - Cosine similarity
 # 
@@ -83,7 +78,7 @@ word_to_vec_map
 # #### Additional Hints
 # * You may find `np.dot`, `np.sum`, or `np.sqrt` useful depending upon the implementation that you choose.
 
-# In[35]:
+# In[3]:
 
 # GRADED FUNCTION: cosine_similarity
 
@@ -116,7 +111,7 @@ def cosine_similarity(u, v):
     return cosine_similarity
 
 
-# In[36]:
+# In[4]:
 
 father = word_to_vec_map["father"]
 mother = word_to_vec_map["mother"]
@@ -179,7 +174,7 @@ print("cosine_similarity(france - paris, rome - italy) = ",cosine_similarity(fra
 # 
 # **Exercise**: Complete the code below to be able to perform word analogies!
 
-# In[37]:
+# In[5]:
 
 # GRADED FUNCTION: complete_analogy
 
@@ -236,7 +231,7 @@ def complete_analogy(word_a, word_b, word_c, word_to_vec_map):
 
 # Run the cell below to test your code, this may take 1-2 minutes.
 
-# In[38]:
+# In[6]:
 
 triads_to_try = [('italy', 'italian', 'spain'), ('india', 'delhi', 'japan'), ('man', 'woman', 'boy'), ('small', 'smaller', 'large')]
 for triad in triads_to_try:
@@ -303,7 +298,7 @@ for triad in triads_to_try:
 # Lets first see how the GloVe word embeddings relate to gender. You will first compute a vector $g = e_{woman}-e_{man}$, where $e_{woman}$ represents the word vector corresponding to the word *woman*, and $e_{man}$ corresponds to the word vector corresponding to the word *man*. The resulting vector $g$ roughly encodes the concept of "gender". (You might get a more accurate representation if you compute $g_1 = e_{mother}-e_{father}$, $g_2 = e_{girl}-e_{boy}$, etc. and average over them. But just using $e_{woman}-e_{man}$ will give good enough results for now.) 
 # 
 
-# In[39]:
+# In[7]:
 
 g = word_to_vec_map['woman'] - word_to_vec_map['man']
 print(g)
@@ -311,7 +306,7 @@ print(g)
 
 # Now, you will consider the cosine similarity of different words with $g$. Consider what a positive value of similarity means vs a negative cosine similarity. 
 
-# In[40]:
+# In[8]:
 
 print ('List of names and their similarities with constructed vector:')
 
@@ -326,7 +321,7 @@ for w in name_list:
 # 
 # But let's try with some other words.
 
-# In[41]:
+# In[9]:
 
 print('Other words and their similarities:')
 word_list = ['lipstick', 'guns', 'science', 'arts', 'literature', 'warrior','doctor', 'tree', 'receptionist', 
@@ -361,7 +356,7 @@ for w in word_list:
 # where : $u_B = $ and $ u_{\perp} = u - u_B $
 # !--> 
 
-# In[42]:
+# In[10]:
 
 def neutralize(word, g, word_to_vec_map):
     """
@@ -392,7 +387,7 @@ def neutralize(word, g, word_to_vec_map):
     return e_debiased
 
 
-# In[43]:
+# In[11]:
 
 e = "receptionist"
 print("cosine similarity between " + e + " and g, before neutralizing: ", cosine_similarity(word_to_vec_map["receptionist"], g))
@@ -457,7 +452,7 @@ print("cosine similarity between " + e + " and g, after neutralizing: ", cosine_
 # 
 # **Exercise**: Implement the function below. Use the equations above to get the final equalized version of the pair of words. Good luck!
 
-# In[44]:
+# In[12]:
 
 def equalize(pair, bias_axis, word_to_vec_map):
     """
@@ -502,7 +497,7 @@ def equalize(pair, bias_axis, word_to_vec_map):
     return e1, e2
 
 
-# In[45]:
+# In[13]:
 
 print("cosine similarities before equalizing:")
 print("cosine_similarity(word_to_vec_map[\"man\"], gender) = ", cosine_similarity(word_to_vec_map["man"], g))
