@@ -11,3 +11,6 @@ https://www.coursera.org/account/accomplishments/certificate/3DU8LMN3YBH8
 
 Certification verified by Coursera for Course 4 - Convolutional Neural Networks
 https://www.coursera.org/account/accomplishments/certificate/XY6GAT8R22EF
+
+Certification verified by Coursera for Course 5 - Sequence Models
+https://www.coursera.org/account/accomplishments/certificate/6RVH86K4QBTG
